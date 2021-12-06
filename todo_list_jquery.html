@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+        <div class="container">
+            <div class="row">
+            <div class="col-md-7 mx-auto">
+                <h3 class="my-5 text-center">Todo List Jquery</h3>
+
+                <div class="alert alert-info d-none" role="alert">
+                    Please add Todos.
+                </div>
+                <div class="alert alert-success d-none" role="alert">
+                    Todo Added Successfully.
+                </div>
+                <div class="alert alert-danger d-none" role="alert">
+                    Todo is Removed.
+                </div>
+                
+
+                <ul class="list-group mb-5">
+                    
+                    
+                  </ul>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control inputtxt" placeholder="Enter Todos" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text btn-primary" id="basic-addon2">Save</span>
+                </div>
+                </div>  
+            </div>
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                if ($(".list-group li").length<=0) {                        
+                        $('.alert-info').removeClass('d-none');
+                        $('.alert-danger').addClass('d-none');
+                    }               
+                $(".btn-primary").click(function(){
+                    $('.alert-info').addClass('d-none');
+                    let todoname = $('.inputtxt').val();
+                    $(".list-group").append('<li class="list-group-item d-flex justify-content-between align-items-center">'+todoname+'<button type="button" class="btn btn-danger btn-sm float-end" onclick="RemoveTodo(this)">Remove</button></li>');
+                    $('.inputtxt').val('');
+                    $('.alert-success').removeClass('d-none');
+                    setTimeout(function(){ $('.alert-success').addClass('d-none'); }, 3000);
+                });
+            });
+
+            function RemoveTodo(element){
+                
+                $(document).ready(function(){               
+                    $(element).parent().remove();
+                    $('.alert-danger').removeClass('d-none');
+                    setTimeout(function(){ $('.alert-danger').addClass('d-none'); }, 3000);
+                    $('.alert-success').addClass('d-none');
+                    if ($(".list-group li").length<=0) {                        
+                        $('.alert-info').removeClass('d-none');
+                        $('.alert-danger').addClass('d-none');
+                    }
+                });
+
+            }
+        </script>
+
+  </body>
+</html>
