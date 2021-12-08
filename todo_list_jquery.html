@@ -72,39 +72,39 @@
                     $('.alert-success').addClass('d-none');
                 }, 3000);
 
-                $(".btn-danger").click(function() {
-                    $(this).parent().remove();
-                    $('.alert-danger').removeClass('d-none');
-                    setTimeout(function() {
-                        $('.alert-danger').addClass('d-none');
-                    }, 3000);
-                    $('.alert-success').addClass('d-none');
-                    if ($(".list-group li").length <= 0) {
-                        $('.alert-info').removeClass('d-none');
-                        $('.alert-danger').addClass('d-none');
-                    }
+                // $(".btn-danger").click(function() {
+                //     $(this).parent().remove();
+                //     $('.alert-danger').removeClass('d-none');
+                //     setTimeout(function() {
+                //         $('.alert-danger').addClass('d-none');
+                //     }, 3000);
+                //     $('.alert-success').addClass('d-none');
+                //     if ($(".list-group li").length <= 0) {
+                //         $('.alert-info').removeClass('d-none');
+                //         $('.alert-danger').addClass('d-none');
+                //     }
 
-                });
+                // });
             });
         });
 
 
-        // function RemoveTodo(element) {
+        function RemoveTodo(element) {
 
-        //     $(document).ready(function() {
-        //         $(element).parent().remove();
-        //         $('.alert-danger').removeClass('d-none');
-        //         setTimeout(function() {
-        //             $('.alert-danger').addClass('d-none');
-        //         }, 3000);
-        //         $('.alert-success').addClass('d-none');
-        //         if ($(".list-group li").length <= 0) {
-        //             $('.alert-info').removeClass('d-none');
-        //             $('.alert-danger').addClass('d-none');
-        //         }
-        //     });
+            $(document).ready(function() {
+                $(element).parent().remove();
+                $('.alert-danger').removeClass('d-none');
+                setTimeout(function() {
+                    $('.alert-danger').addClass('d-none');
+                }, 3000);
+                $('.alert-success').addClass('d-none');
+                if ($(".list-group li").length <= 0) {
+                    $('.alert-info').removeClass('d-none');
+                    $('.alert-danger').addClass('d-none');
+                }
+            });
 
-        // }
+        }
     </script>
 
 </body>
