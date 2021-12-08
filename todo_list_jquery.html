@@ -65,31 +65,46 @@
 
                 }
 
-                $(".list-group").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + todoname + '<button type="button" class="btn btn-danger btn-sm float-end" onclick="RemoveTodo(this)">Remove</button></li>');
+                $(".list-group").append('<li class="list-group-item d-flex justify-content-between align-items-center">' + todoname + '<button type="button" class="btn btn-danger btn-sm float-end" onclick="RemoveTodo(this)" >Remove</button></li>');
                 $('.inputtxt').val('');
                 $('.alert-success').removeClass('d-none');
                 setTimeout(function() {
                     $('.alert-success').addClass('d-none');
                 }, 3000);
+
+                $(".btn-danger").click(function() {
+                    $(this).parent().remove();
+                    $('.alert-danger').removeClass('d-none');
+                    setTimeout(function() {
+                        $('.alert-danger').addClass('d-none');
+                    }, 3000);
+                    $('.alert-success').addClass('d-none');
+                    if ($(".list-group li").length <= 0) {
+                        $('.alert-info').removeClass('d-none');
+                        $('.alert-danger').addClass('d-none');
+                    }
+
+                });
             });
         });
 
-        function RemoveTodo(element) {
 
-            $(document).ready(function() {
-                $(element).parent().remove();
-                $('.alert-danger').removeClass('d-none');
-                setTimeout(function() {
-                    $('.alert-danger').addClass('d-none');
-                }, 3000);
-                $('.alert-success').addClass('d-none');
-                if ($(".list-group li").length <= 0) {
-                    $('.alert-info').removeClass('d-none');
-                    $('.alert-danger').addClass('d-none');
-                }
-            });
+        // function RemoveTodo(element) {
 
-        }
+        //     $(document).ready(function() {
+        //         $(element).parent().remove();
+        //         $('.alert-danger').removeClass('d-none');
+        //         setTimeout(function() {
+        //             $('.alert-danger').addClass('d-none');
+        //         }, 3000);
+        //         $('.alert-success').addClass('d-none');
+        //         if ($(".list-group li").length <= 0) {
+        //             $('.alert-info').removeClass('d-none');
+        //             $('.alert-danger').addClass('d-none');
+        //         }
+        //     });
+
+        // }
     </script>
 
 </body>
